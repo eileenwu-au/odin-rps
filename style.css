@@ -1,0 +1,34 @@
+body {
+    margin: 0; 
+    padding: 0; 
+    /* Optional: Sets a width and centers the content on large screens */
+    width: 100%;
+    /* Optional: A max-width keeps content readable on very wide screens */
+    max-width: 1440px; 
+    /* Centers the body block in the viewport (for max-width usage) */
+    margin-left: auto;
+    margin-right: auto; 
+    font-family: 'Poppins', 'Arial', sans-serif;
+    font-size: 14px;
+    color: #000;
+    background-color: #fff;
+}
+
+.flex-container {
+    display: flex;
+    align-items: baseline;
+}
+
+.flex-container div {
+    flex: 1;
+}
+
+#content {
+    width: 100%;
+    background-color: #fff;
+}
+
+h1 {
+    font-size: 1.5em;
+    font-weight: bold;
+}
