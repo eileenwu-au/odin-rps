@@ -30,4 +30,19 @@
         - ELSE declare the winner (computer or user)
 */
 
+let roundCount = 1;
+let player1 = "Computer";
+let player2 = "User";
 
+function getComputerChoice() {
+    return Math.floor(Math.random() * 100);
+}
+
+console.log(getComputerChoice());
+
+function getHumanChoice() {
+    let humanChoice = prompt("Rock, paper or scissors?");
+    console.log(humanChoice.toLowerCase());
+}
+
+getHumanChoice();
