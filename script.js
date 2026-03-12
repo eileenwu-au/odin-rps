@@ -35,10 +35,21 @@ let player1 = "Computer";
 let player2 = "User";
 
 function getComputerChoice() {
-    return Math.floor(Math.random() * 100);
+    let computerChoice = Math.floor(Math.random() * 100);
+
+    if (computerChoice > 0 && computerChoice <= 33) {
+        computerChoice = "rock";
+    }
+    else if (computerChoice > 33 && computerChoice <= 66) {
+        computerChoice = "paper";
+    }
+    else {
+        computerChoice = "scissors";
+    }
+    console.log(computerChoice);
 }
 
-console.log(getComputerChoice());
+getComputerChoice();
 
 function getHumanChoice() {
     let humanChoice = prompt("Rock, paper or scissors?");
@@ -46,3 +57,10 @@ function getHumanChoice() {
 }
 
 getHumanChoice();
+
+let humanScore = 0;
+let computerScore = 0;
+
+function playRound() {
+    
+}
