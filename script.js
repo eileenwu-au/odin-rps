@@ -1,9 +1,10 @@
 /*
     PLAN
     1. Initiate game
-        - onClick 'Let's Play!' button will run the function to start the game
+        - On page load run the function to start the game
         - Store game number as variable roundCount
         - Set roundCount = 1
+        - Create variables for computer and user
     2. Generate computer choice
         - Use math.random to generate a number
         - Multiply number by 100 and round off to the nearest integer
@@ -13,7 +14,7 @@
             * ELSE scissors
             * Store as variable 'computerChoice'
     3. Get user's choice
-        - Opent prompt to allow user input
+        - Open prompt to allow user input
         - Standardise the input by making all lowercase
         - Store as 'humanChoice'
     4. Compare the choices to determine the winner
@@ -24,6 +25,9 @@
             * IF computer = scissors & human = rock OR computer = rock & human = paper OR computer = paper & human = scissors THEN humanScore +1
             * ELSE both computerScore and humanScore score +1
     5. Show the score
+        - console.log() score and round
         - Check IF roundCount < 5, start another round AND roundCount +1
-        - ELSE declare the winner
+        - ELSE declare the winner (computer or user)
 */
+
+
