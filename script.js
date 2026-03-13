@@ -49,18 +49,34 @@ function getComputerChoice() {
     console.log(computerChoice);
 }
 
-getComputerChoice();
-
 function getHumanChoice() {
     let humanChoice = prompt("Rock, paper or scissors?");
     console.log(humanChoice.toLowerCase());
 }
 
-getHumanChoice();
+function playRound(computerChoice, humanChoice) {
+    let humanScore = 0;
+    let computerScore = 0;
 
-let humanScore = 0;
-let computerScore = 0;
+    getComputerChoice();
+    getHumanChoice();
 
-function playRound() {
+    if ((computerChoice === "rock" && humanChoice === "scissors") || (computerChoice === "scissors" && humanChoice === "paper") || (computerChoice === "paper" && humanChoice === "rock")) {
+        computerScore++;
+        console.log("Computer wins!");
+    }
+    else if ((computerChoice === "scissors" && humanChoice === "rock") || (computerChoice === "rock" && humanChoice === "paper") || (computerChoice === "paper" && humanChoice === "scissors")) {
+        humanScore++;
+        console.log("User wins!")
+    }
+    else { // in the event of computer and human choices are the same
+        computerScore++;
+        humanScore++;
+        console.log("It's a draw!")
+    }
     
+    console.log(computerScore);
+    console.log(humanScore);
 }
+
+playRound();
