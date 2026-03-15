@@ -33,9 +33,6 @@
 
 let player1 = "Computer";
 let player2 = "User";
-let humanScore = 0;
-let computerScore = 0;
-let roundCount = 0;
 
 function getComputerChoice() {
     let computerChoice = Math.floor(Math.random() * 100);
@@ -57,34 +54,33 @@ function getHumanChoice() {
     return humanChoice;
 }
 
-function playRound(computerChoice, humanChoice) {
-    console.log("Computer chose " + computerChoice);
-    console.log("User chose " + humanChoice);
-
-    if ((computerChoice === "rock" && humanChoice === "scissors") || (computerChoice === "scissors" && humanChoice === "paper") || (computerChoice === "paper" && humanChoice === "rock")) {
-        computerScore++;
-        console.log("Computer wins!");
-    }
-    else if ((computerChoice === "scissors" && humanChoice === "rock") || (computerChoice === "rock" && humanChoice === "paper") || (computerChoice === "paper" && humanChoice === "scissors")) {
-        humanScore++;
-        console.log("User wins!");
-    }
-    else { // in the event of computer and human choices are the same
-        computerScore++;
-        humanScore++;
-        console.log("It's a draw!");
-    }
-
-    console.log(computerScore);
-    console.log(humanScore);
-    roundCount++;
-    console.log("Round number " + roundCount + " is over!");
-}
-
 function playGame() {
+    let humanScore = 0;
+    let computerScore = 0;
+    let roundCount = 0;
     let computerSelection = getComputerChoice();
     let humanSelection = getHumanChoice();
 
+    function playRound(computerChoice, humanChoice) {
+        console.log("Computer chose " + computerChoice);
+        console.log("User chose " + humanChoice);
+
+        if ((computerChoice === "rock" && humanChoice === "scissors") || (computerChoice === "scissors" && humanChoice === "paper") || (computerChoice === "paper" && humanChoice === "rock")) {
+            console.log("Computer wins!");
+            return computerScore++;
+        }
+        else if ((computerChoice === "scissors" && humanChoice === "rock") || (computerChoice === "rock" && humanChoice === "paper") || (computerChoice === "paper" && humanChoice === "scissors")) {
+            console.log("User wins!");
+            return humanScore++;
+        }
+        else { // in the event of computer and human choices are the same
+            console.log("It's a draw!");
+        }
+        console.log(computerScore);
+        console.log(humanScore);
+        roundCount++;
+        console.log("Round number " + roundCount + " is over!");
+    }
     playRound(computerSelection, humanSelection);
 }
 
