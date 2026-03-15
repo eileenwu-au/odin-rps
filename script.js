@@ -30,10 +30,6 @@
         - ELSE declare the winner (computer or user)
 */
 
-
-let player1 = "Computer";
-let player2 = "User";
-
 function getComputerChoice() {
     let computerChoice = Math.floor(Math.random() * 100);
 
@@ -67,21 +63,30 @@ function playGame() {
 
         if ((computerChoice === "rock" && humanChoice === "scissors") || (computerChoice === "scissors" && humanChoice === "paper") || (computerChoice === "paper" && humanChoice === "rock")) {
             console.log("Computer wins!");
-            return computerScore++;
+            computerScore++;
         }
         else if ((computerChoice === "scissors" && humanChoice === "rock") || (computerChoice === "rock" && humanChoice === "paper") || (computerChoice === "paper" && humanChoice === "scissors")) {
             console.log("User wins!");
-            return humanScore++;
+            humanScore++;
         }
         else { // in the event of computer and human choices are the same
             console.log("It's a draw!");
         }
-        console.log(computerScore);
-        console.log(humanScore);
+        console.log("Computer score: " + computerScore);
+        console.log("User score: " + humanScore);
         roundCount++;
         console.log("Round number " + roundCount + " is over!");
     }
-    playRound(computerSelection, humanSelection);
+    
+    function repeatRound (roundCount) {
+        if (roundCount < 5) {
+            playRound(computerSelection, humanSelection);
+        }
+        else {
+            console.log("Game over");
+        }
+    }
+    repeatRound(roundCount);
 }
 
 playGame();
