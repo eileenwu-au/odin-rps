@@ -2,9 +2,6 @@
     PLAN
     1. Initiate game
         - On page load run the function to start the game
-        - Store game number as variable roundCount
-        - Set roundCount = 1
-        - Create variables for computer and user
     2. Generate computer choice
         - Use math.random to generate a number
         - Multiply number by 100 and round off to the nearest integer
@@ -25,9 +22,9 @@
             * IF computer = scissors & human = rock OR computer = rock & human = paper OR computer = paper & human = scissors THEN humanScore +1
             * ELSE both computerScore and humanScore score +1
     5. Show the score
-        - console.log() score and round
-        - Check IF roundCount < 5, start another round AND roundCount +1
-        - ELSE declare the winner (computer or user)
+        - console.log() score for each player
+    6. Play for another 4 rounds
+            - At the end of the 5th round, declare the winner (computer, user or draw)
 */
 
 function getComputerChoice() {
