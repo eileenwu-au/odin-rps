@@ -31,8 +31,10 @@
 */
 
 function getComputerChoice() {
+    //Generate a random number between 0-100
     let computerChoice = Math.floor(Math.random() * 100);
 
+    //Assign rock, paper or scissors based on randomly generated integer value
     if (computerChoice > 0 && computerChoice <= 33) {
         computerChoice = "rock";
     }
@@ -42,25 +44,51 @@ function getComputerChoice() {
     else {
         computerChoice = "scissors";
     }
+
+    //Save the value into the variable for later use
     return computerChoice;
 }
 
 function getHumanChoice() {
+    //Get the user's choice
     let humanChoice = prompt("Rock, paper or scissors?").toLowerCase();
+
+    //Save the value into the variable for later use
     return humanChoice;
 }
 
 function playGame() {
     let humanScore = 0;
     let computerScore = 0;
-    let roundCount = 0;
-    let computerSelection = getComputerChoice();
-    let humanSelection = getHumanChoice();
 
+    // Use a loop to repeat the rounds 5 times
+    for (let roundCount = 1; roundCount <= 5; roundCount++) {
+        
+        // Get new choices every single round
+        let computerSelection = getComputerChoice();
+        let humanSelection = getHumanChoice();
+
+        // Play the round
+        playRound(computerSelection, humanSelection);
+    }
+
+    // Final score check after the loop finishes
+    if (computerScore > humanScore) {
+        console.log("Computer wins! Game over.");
+    }
+    else if (humanScore > computerScore) {
+        console.log("User wins! Game over.");
+    }
+    else {
+        console.log("It's a draw! Game over.");
+    }    
+    
     function playRound(computerChoice, humanChoice) {
+        //Display the computer and user choices
         console.log("Computer chose " + computerChoice);
         console.log("User chose " + humanChoice);
 
+        //Determine the winner
         if ((computerChoice === "rock" && humanChoice === "scissors") || (computerChoice === "scissors" && humanChoice === "paper") || (computerChoice === "paper" && humanChoice === "rock")) {
             console.log("Computer wins!");
             computerScore++;
@@ -72,21 +100,11 @@ function playGame() {
         else { // in the event of computer and human choices are the same
             console.log("It's a draw!");
         }
+        
+        //Display the score
         console.log("Computer score: " + computerScore);
         console.log("User score: " + humanScore);
-        roundCount++;
-        console.log("Round number " + roundCount + " is over!");
-    }
-    
-    function repeatRound (roundCount) {
-        if (roundCount < 5) {
-            playRound(computerSelection, humanSelection);
-        }
-        else {
-            console.log("Game over");
-        }
-    }
-    repeatRound(roundCount);
+    } 
 }
 
 playGame();
